@@ -34,6 +34,10 @@ npm run build
 npm run preview
 ```
 
+Deploy the contents of `dist/` to a static host. Vite uses relative asset URLs so the build also works when served from a subdirectory. The app's screens use in-page state rather than URL routes, so no client-side route rewrite is needed.
+
+The HTML supplies a restrictive CSP: scripts are self-hosted and `unsafe-eval` is not allowed. Inline style attributes are permitted for the app's data-driven charts and modal sizing; Google Fonts are the only external resource origin. If your host adds CSP response headers, keep them consistent with this policy (multiple policies are enforced together).
+
 ## How to demo it to a business owner
 
 1. Open the Overview dashboard and explain the operational snapshot.
@@ -52,6 +56,8 @@ The sample business is **Summit Equipment Co.** The product concept/brand is **R
 This is a front-end demo, not a production-ready SaaS. All records are sample data stored in the current browser's localStorage. There is no real login, server, database, tenant isolation, email delivery, payment processing, document signing, or live availability API. Storefront requests and payment updates are simulated in the browser only. Do not enter real customer data or use this prototype for live business operations.
 
 Before selling subscriptions or onboarding real companies, build and test a production backend with server-side authentication/authorization, organization-level data isolation, transactional booking availability, database backups, payment-provider integration, email notifications, audit logs, secure file storage, monitoring, and applicable privacy/tax/legal requirements.
+
+There are currently no API endpoints or API environment variables to configure. A real backend URL and its matching client integration must be provided before server-backed production use; adding a placeholder URL would not make these demo workflows persistent or secure.
 
 ## Main stack
 

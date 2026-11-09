@@ -34,16 +34,6 @@ npm run build
 npm run preview
 ```
 
-### Deploy to GitHub Pages
-
-This repository deploys to `https://azhan787.github.io/RentFlow-Demo/`. Vite is configured with the `/RentFlow-Demo/` base path so production JavaScript and CSS assets are loaded from the repository subpath.
-
-The GitHub Actions workflow builds the app and deploys only the generated `dist/` directory. In the repository's **Settings → Pages**, set **Build and deployment → Source** to **GitHub Actions**. Then push to `main` or run **Deploy RentFlow to GitHub Pages** from the Actions tab. Do not select branch-root deployment, which serves the source `index.html` and causes `/src/main.jsx` to 404.
-
-The app's screens use in-page state rather than URL routes, so no client-side route rewrite is needed.
-
-The HTML supplies a restrictive CSP: scripts are self-hosted and `unsafe-eval` is not allowed. Inline style attributes are permitted for the app's data-driven charts and modal sizing; Google Fonts are the only external resource origin. If your host adds CSP response headers, keep them consistent with this policy (multiple policies are enforced together).
-
 ## How to demo it to a business owner
 
 1. Open the Overview dashboard and explain the operational snapshot.
@@ -63,8 +53,6 @@ This is a front-end demo, not a production-ready SaaS. All records are sample da
 
 Before selling subscriptions or onboarding real companies, build and test a production backend with server-side authentication/authorization, organization-level data isolation, transactional booking availability, database backups, payment-provider integration, email notifications, audit logs, secure file storage, monitoring, and applicable privacy/tax/legal requirements.
 
-There are currently no API endpoints or API environment variables to configure. A real backend URL and its matching client integration must be provided before server-backed production use; adding a placeholder URL would not make these demo workflows persistent or secure.
-
 ## Main stack
 
 - React 18
@@ -76,4 +64,3 @@ There are currently no API endpoints or API environment variables to configure. 
 ## Reset demo data
 
 Open **Settings → Reset demo workspace**. This restores the seed sample records in the current browser.
-# RentFlow-Demo

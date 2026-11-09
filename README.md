@@ -34,7 +34,13 @@ npm run build
 npm run preview
 ```
 
-Deploy the contents of `dist/` to a static host. Vite uses relative asset URLs so the build also works when served from a subdirectory. The app's screens use in-page state rather than URL routes, so no client-side route rewrite is needed.
+### Deploy to GitHub Pages
+
+This repository deploys to `https://azhan787.github.io/RentFlow-Demo/`. Vite is configured with the `/RentFlow-Demo/` base path so production JavaScript and CSS assets are loaded from the repository subpath.
+
+The GitHub Actions workflow builds the app and deploys only the generated `dist/` directory. In the repository's **Settings → Pages**, set **Build and deployment → Source** to **GitHub Actions**. Then push to `main` or run **Deploy RentFlow to GitHub Pages** from the Actions tab. Do not select branch-root deployment, which serves the source `index.html` and causes `/src/main.jsx` to 404.
+
+The app's screens use in-page state rather than URL routes, so no client-side route rewrite is needed.
 
 The HTML supplies a restrictive CSP: scripts are self-hosted and `unsafe-eval` is not allowed. Inline style attributes are permitted for the app's data-driven charts and modal sizing; Google Fonts are the only external resource origin. If your host adds CSP response headers, keep them consistent with this policy (multiple policies are enforced together).
 
